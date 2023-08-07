@@ -1,0 +1,30 @@
+sort(nums.begin(),nums.end());
+set<vector<int>>res1;
+for(int i=0;i<nums.size();i++)
+{
+    int l=i+1;
+    int h=nums.size()-1;
+    while(l<h)
+    {
+        if(nums[i]+nums[l]+nums[h]==0)
+        {
+            vector<int>val;
+            val.push_back(nums[i]);
+            val.push_back(nums[l]);
+            val.push_back(nums[h]);
+            res1.insert(val);
+            l++;
+            h--;
+        }
+        else if (nums[i]+nums[l]+nums[h]<0)
+        {
+            l++;
+        }
+        else
+        {
+            h--;
+        }
+    }
+}
+vector<vector<int>>res(res1.begin(),res2.end());
+return res;
